@@ -16,7 +16,7 @@ function moveCat() {
 
   if (x <= 0 || x + catWidth >= screenWidth) {
     vx = -vx;
-    flipped = !flipped;
+    flipped = !flipped;  // 反転フラグを切り替える
   }
 
   if (y <= 0 || y + catHeight >= screenHeight) {
