@@ -1,8 +1,9 @@
 const cat = document.getElementById("nyancat");
+
 let x = 100;
 let y = 100;
 let vx = 2;
-let vy = 1.5;
+let vy = 2;
 let flipped = false;
 
 function moveCat() {
@@ -14,11 +15,13 @@ function moveCat() {
   x += vx;
   y += vy;
 
+  // 左右の壁に当たったら反転
   if (x <= 0 || x + catWidth >= screenWidth) {
     vx = -vx;
-    flipped = !flipped;  // 反転フラグを切り替える
+    flipped = vx < 0; // 左右反転（向き）
   }
 
+  // 上下の壁に当たったら反転
   if (y <= 0 || y + catHeight >= screenHeight) {
     vy = -vy;
   }
@@ -26,7 +29,7 @@ function moveCat() {
   cat.style.left = `${x}px`;
   cat.style.top = `${y}px`;
 
-  // 左右反転（CSS変形）
+  // 向き（左向き or 右向き）
   cat.style.transform = flipped ? "scaleX(-1)" : "scaleX(1)";
 
   requestAnimationFrame(moveCat);
