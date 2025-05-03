@@ -1,35 +1,60 @@
-body {
+body, html {
   margin: 0;
-  height: 100vh;
-  overflow: hidden;
-  background: linear-gradient(to bottom, #1a2a6c, #2193b0, #6dd5ed); /* 青系 */
-  font-family: 'Arial', sans-serif;
-  color: white;
-  position: relative;
-}
-
-/* MEMZ風アニメーションテキスト */
-.intro-animation {
-  position: absolute;
-  top: 30%;
+  padding: 0;
   width: 100%;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  opacity: 0;
-  animation: fadeIn 3s ease-in forwards;
-  z-index: 10;
+  height: 100%;
+  font-family: 'Courier New', monospace;
+  color: white;
+  overflow: hidden;
 }
 
-@keyframes fadeIn {
+/* MEMZ風 黒背景 */
+#memz-screen {
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 2em;
+  box-sizing: border-box;
+}
+
+#memz-text {
+  font-size: 20px;
+  white-space: pre-wrap;
+}
+
+/* 自己紹介画面 */
+#main-screen {
+  display: none;
+  background: linear-gradient(to bottom, #001f3f, #0074D9, #00aaff); /* より青く */
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  padding: 2em;
+  box-sizing: border-box;
+}
+
+/* 表示切替用 */
+#main-screen.show {
+  display: block;
+  animation: fadeInMain 2s ease-in forwards;
+}
+
+@keyframes fadeInMain {
+  from {
+    opacity: 0;
+  }
   to {
     opacity: 1;
   }
 }
 
+/* Nyan Cat */
 #nyancat {
   position: absolute;
-  width: 120px;
+  width: 100px;
   pointer-events: none;
   z-index: 1;
 }
@@ -38,12 +63,10 @@ body {
   width: 100%;
 }
 
+/* 自己紹介テキスト */
 .intro-text {
   position: relative;
-  z-index: 5;
-  padding: 2em;
-  max-width: 600px;
-  margin: 100px auto;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 12px;
+  z-index: 2;
+  font-size: 18px;
+  margin-top: 100px;
 }
