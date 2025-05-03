@@ -85,6 +85,14 @@ body, html {
   }
 }
 
+/* パソコンの画面にのみ適用 */
+@media (min-width: 768px) {
+  #nyancat {
+    width: 400px; /* 大きさを変更 */
+    animation: nyanMove 50s linear infinite; /* アニメーション速度をかなり遅くする */
+  }
+}
+
 /* スマホ対応 */
 @media (max-width: 768px) {
   #nyancat {
