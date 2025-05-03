@@ -1,13 +1,12 @@
 body, html {
   margin: 0;
   padding: 0;
-  width: 100%;
   height: 100%;
-  font-family: 'Courier New', monospace;
   overflow: hidden;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-/* --- MEMZ風メッセージ画面 --- */
+/* MEMZ風の黒背景画面 */
 #memz-screen {
   background-color: black;
   width: 100%;
@@ -16,99 +15,60 @@ body, html {
   align-items: flex-start;
   justify-content: flex-start;
   padding: 20px;
-  box-sizing: border-box;
   color: white;
+  font-size: 1.2em;
+  box-sizing: border-box;
 }
 
-#memz-text {
-  font-size: 16px;
-  white-space: pre-wrap;
-  line-height: 1.4;
-}
-
-/* 点滅カーソル風 */
-#memz-text::after {
-  content: "_";
-  animation: blink 1s steps(1) infinite;
+.cursor {
+  animation: blink 1s step-start infinite;
+  color: white;
+  font-weight: bold;
 }
 
 @keyframes blink {
-  50% {
-    opacity: 0;
-  }
+  50% { opacity: 0; }
 }
 
-/* --- 自己紹介画面 --- */
+/* 自己紹介画面 */
 #main-screen {
-  display: none;
-  background: linear-gradient(to bottom, #000814, #001f3f, #002c5f); /* より暗い青 */
+  background-color: #0a0f3c; /* より暗い青 */
   width: 100%;
   height: 100vh;
-  position: relative;
-  padding: 2em;
-  box-sizing: border-box;
   color: white;
+  padding: 40px;
+  box-sizing: border-box;
+  display: none;
+  position: relative;
+  z-index: 0;
 }
 
-/* 表示切替時にフェードイン */
 #main-screen.show {
   display: block;
-  animation: fadeInMain 2s ease-in forwards;
 }
 
-@keyframes fadeInMain {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Nyan Cat アニメーション */
-#nyancat {
-  position: absolute;
-  width: 200px; /* 大きさを変更 */
-  top: 40%;
-  left: -150px;
-  z-index: 1;
-  animation: nyanMove 20s linear infinite; /* アニメーション速度を遅くする */
-  pointer-events: none;
-}
-
-@keyframes nyanMove {
-  0% {
-    left: -150px;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-/* パソコンの画面にのみ適用 */
-@media (min-width: 768px) {
-  #nyancat {
-    width: 400px; /* 大きさを変更 */
-    animation: nyanMove 50s linear infinite; /* アニメーション速度をかなり遅くする */
-  }
-}
-
-/* スマホ対応 */
-@media (max-width: 768px) {
-  #nyancat {
-    width: 150px; /* スマホ画面に合わせて大きさを調整 */
-    top: 30%;
-  }
-}
-
-#nyancat img {
-  width: 100%;
-}
-
-/* 自己紹介テキスト */
 .intro-text {
   position: relative;
   z-index: 2;
-  font-size: 18px;
-  margin-top: 100px;
+  font-size: 1.4em;
+  line-height: 1.6;
+}
+
+/* nyancats container */
+#nyancat-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* nyancat GIF */
+.nyancat {
+  position: absolute;
+  width: 80px;
+  pointer-events: none;
+  will-change: transform;
 }
