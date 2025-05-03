@@ -5,23 +5,26 @@ body {
   background: linear-gradient(to bottom, #111, #333);
   font-family: 'Arial', sans-serif;
   color: white;
+  position: relative;
 }
 
 #nyancat {
   position: absolute;
-  width: 200px;
+  width: 120px; /* ← サイズ小さめに */
   pointer-events: none;
-  text-align: center;
 }
 
 #nyancat img {
   width: 100%;
 }
 
-.intro {
+.intro-text {
+  position: relative;
+  z-index: 1;
+  padding: 2em;
+  max-width: 600px;
+  margin: 50px auto;
   background: rgba(0, 0, 0, 0.6);
-  padding: 6px;
-  border-radius: 8px;
-  font-size: 14px;
-  margin-top: 5px;
+  border-radius: 12px;
 }
+
