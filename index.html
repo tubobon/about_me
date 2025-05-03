@@ -1,49 +1,30 @@
-const memzTextEl = document.getElementById("memz-text");
-const mainScreen = document.getElementById("main-screen");
-const memzScreen = document.getElementById("memz-screen");
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nyan MEMZ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-const message = "Your computer has been trashed by MEMZ trojan. Now enjoy the Tubo Cat...";
-let index = 0;
+  <!-- MEMZ風画面 -->
+  <div id="memz-screen">
+    <div id="memz-text" class="typing"></div><span class="cursor">_</span>
+  </div>
 
-// MEMZ風のタイピングテキスト
-function typeText() {
-  if (index < message.length) {
-    memzTextEl.textContent += message.charAt(index);
-    index++;
-    setTimeout(typeText, 50);
-  } else {
-    setTimeout(() => {
-      memzScreen.style.display = "none";
-      mainScreen.classList.add("show");
-      startNyanLoop(); // nyan.js風アニメーション開始
-    }, 1500);
-  }
-}
+  <!-- 自己紹介画面 -->
+  <div id="main-screen" class="hidden">
+    <div id="nyancat-container"></div>
+    <div class="intro-text">
+      <h1>こんにちは！</h1>
+      <p>
+        私はウェブ開発が大好きな学生です。<br>
+        JavaScriptとアニメーションを使って、楽しい体験を作るのが目標です。
+      </p>
+    </div>
+  </div>
 
-typeText();
-
-// nyancatsの生成と移動（反転なし）
-function startNyanLoop() {
-  setInterval(() => {
-    const cat = document.createElement("img");
-    cat.src = "nyancats.gif"; // 右向きGIF
-    cat.className = "nyancat";
-    cat.style.top = `${Math.random() * 80 + 10}%`;
-    cat.style.left = "-100px";
-
-    document.getElementById("nyancat-container").appendChild(cat);
-
-    let pos = -100;
-
-    const moveInterval = setInterval(() => {
-      pos += 4;
-      cat.style.left = pos + "px";
-
-      // 画面右端を超えたら削除
-      if (pos > window.innerWidth) {
-        clearInterval(moveInterval);
-        cat.remove();
-      }
-    }, 16); // 約60fps
-  }, 1000); // 1秒ごとに出現
-}
+  <script src="main.js"></script>
+</body>
+</html>
