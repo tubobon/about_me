@@ -1,42 +1,57 @@
+/* 全体基本設定 */
 body, html {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
   font-family: 'Courier New', monospace;
-  color: white;
   overflow: hidden;
 }
 
-/* MEMZ風 黒背景 */
+/* --- MEMZ風メッセージ画面 --- */
 #memz-screen {
   background-color: black;
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: left;
-  align-items: center;
-  padding: 2em;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
   box-sizing: border-box;
+  color: #00FF00;
 }
 
 #memz-text {
-  font-size: 20px;
+  font-size: 16px;
   white-space: pre-wrap;
+  line-height: 1.4;
 }
 
-/* 自己紹介画面（背景：もっと暗い青） */
+/* 点滅カーソル風 */
+#memz-text::after {
+  content: "_";
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* --- 自己紹介画面 --- */
 #main-screen {
   display: none;
-  background: linear-gradient(to bottom, #000d1a, #001933, #00264d);  /* ← もっと暗い青に */
+  background: linear-gradient(to bottom, #000814, #001f3f, #002c5f); /* より暗い青 */
   width: 100%;
   height: 100vh;
   position: relative;
   padding: 2em;
   box-sizing: border-box;
+  color: white;
 }
 
-/* 表示切替 */
+/* 表示切替時にフェードイン */
 #main-screen.show {
   display: block;
   animation: fadeInMain 2s ease-in forwards;
@@ -51,15 +66,15 @@ body, html {
   }
 }
 
-/* Nyan Cat GIFスタイル */
+/* Nyan Cat アニメーション */
 #nyancat {
   position: absolute;
   width: 100px;
-  pointer-events: none;
+  top: 40%;
+  left: -150px;
   z-index: 1;
-  top: 40%;  /* 中段くらい */
-  left: 0;
   animation: nyanMove 10s linear infinite;
+  pointer-events: none;
 }
 
 @keyframes nyanMove {
