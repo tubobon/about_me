@@ -10,7 +10,7 @@ body, html {
 #memz-screen {
   background-color: black;
   width: 100%;
-  height: 700px;
+  height: 100vh;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -34,7 +34,7 @@ body, html {
 #main-screen {
   background-color: #0a0f3c; /* より暗い青 */
   width: 100%;
-  height: 100vh;
+  height: 200vh;
   color: white;
   padding: 40px;
   box-sizing: border-box;
