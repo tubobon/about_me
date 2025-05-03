@@ -2,16 +2,36 @@ body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
-  background: linear-gradient(to bottom, #111, #333);
+  background: linear-gradient(to bottom, #1a2a6c, #2193b0, #6dd5ed); /* 青系 */
   font-family: 'Arial', sans-serif;
   color: white;
   position: relative;
 }
 
+/* MEMZ風アニメーションテキスト */
+.intro-animation {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeIn 3s ease-in forwards;
+  z-index: 10;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 #nyancat {
   position: absolute;
-  width: 120px; /* ← サイズ小さめに */
+  width: 120px;
   pointer-events: none;
+  z-index: 1;
 }
 
 #nyancat img {
@@ -20,11 +40,10 @@ body {
 
 .intro-text {
   position: relative;
-  z-index: 1;
+  z-index: 5;
   padding: 2em;
   max-width: 600px;
-  margin: 50px auto;
-  background: rgba(0, 0, 0, 0.6);
+  margin: 100px auto;
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 12px;
 }
-
