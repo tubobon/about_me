@@ -1,8 +1,8 @@
 body, html {
   margin: 0;
   padding: 0;
-  height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto; /* 縦スクロールを有効化 */
   font-family: 'Courier New', Courier, monospace;
 }
 
@@ -34,7 +34,7 @@ body, html {
 #main-screen {
   background-color: #0a0f3c; /* より暗い青 */
   width: 100%;
-  height: 200vh;
+  height: 200vh; /* 長いページであることを示すために2画面分 */
   color: white;
   padding: 40px;
   box-sizing: border-box;
