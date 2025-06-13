@@ -3,60 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nyan MEMZ - Virus Edition with Mini-Game</title>
+  <title>Nyan MEMZ - Mobile Virus Edition</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- MEMZ風の黒背景画面 -->
   <div id="memz-screen">
     <div id="memz-text" class="typing"><span class="cursor">_</span></div>
   </div>
 
-  <!-- 自己紹介画面 -->
   <div id="main-screen" class="hidden">
+    <!-- nyanが背景を通るように先に配置 -->
     <div id="nyancat-container"></div>
+
     <div class="intro-text">
       <h1>自己紹介</h1>
-      <p>名前：坪谷　悠輝（ツボタニ　ユウキ）</p>
+      <p>名前：坪谷 悠輝（ツボタニ ユウキ）</p>
       <p>ニックネーム：つぼ</p>
-      <p>所属：情報理工学部　１回生</p>
+      <p>所属：情報理工学部 １回生</p>
       <p>所属団体：RiST , RiPPro</p>
       <p>好きな食べ物：激辛系全般</p>
-      <p>勉強していること：プログラミング(Java , JavaScript , C++) , ネットワーク</p>
+      <p>勉強していること：Java, JavaScript, C++, ネットワーク</p>
       <p>Discord名：tubo8580 / LINE名：つぼ</p>
-      <!-- ゲーム開始ボタン -->
-      <button id="start-game-btn">ミニゲームを始める</button>
+
+      <!-- ゲームスタートボタン -->
+      <button id="start-game-btn">🎮 ミニゲームを始める</button>
     </div>
 
     <!-- ミニゲーム画面 -->
     <div id="game-screen" class="hidden">
-      <h2>ミニゲーム：3×3 行列式を計算せよ</h2>
+      <h2>💥 3×3 行列式を計算せよ！</h2>
       <div id="matrix-container"></div>
       <div id="controls">
         <input type="text" id="answer-input" placeholder="det = ?" />
-        <button id="submit-btn">回答</button>
-        <button id="tip-btn">Tip (100)</button>
-        <button id="shop-btn">Shop</button>
+        <button id="submit-btn">✅ 回答</button>
+        <button id="tip-btn">💡 Tip (100)</button>
+        <button id="shop-btn">🛒 Shop</button>
       </div>
       <div id="status">
-        <p>Life: <span id="life">3</span></p>
-        <p>Money: <span id="money">0</span></p>
-        <p>Consecutive: <span id="combo">0</span></p>
+        ❤️ Life: <span id="life">3</span> / 💰 Money: <span id="money">0</span> / 🔥 Combo: <span id="combo">0</span>
       </div>
       <div id="message"></div>
-    </div>
-
-    <!-- 遊び方説明 -->
-    <div class="howto">
-      <h3>遊び方</h3>
-      <ol>
-        <li>「ミニゲームを始める」ボタンをクリック</li>
-        <li>表示された行列の行列式を計算して入力</li>
-        <li>正解するとコンボが増え、間違えるとライフが減少</li>
-        <li>Moneyを貯めてTipやShopを活用</li>
-        <li>ライフが0になるとゲームオーバー</li>
-      </ol>
     </div>
   </div>
 
