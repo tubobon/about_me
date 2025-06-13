@@ -135,3 +135,12 @@ body, html {
   color: yellow;
   font-size: 1rem;
 }
+#line-icon {
+  float: right;
+  width: 64px;
+  height: 64px;
+  margin-left: 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00ccff;
+}
+
