@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nyan MEMZ - Virus Edition</title>
+  <title>Nyan MEMZ - Virus Edition with Mini-Game</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -25,6 +25,38 @@
       <p>好きな食べ物：激辛系全般</p>
       <p>勉強していること：プログラミング(Java , JavaScript , C++) , ネットワーク</p>
       <p>Discord名：tubo8580 / LINE名：つぼ</p>
+      <!-- ゲーム開始ボタン -->
+      <button id="start-game-btn">ミニゲームを始める</button>
+    </div>
+
+    <!-- ミニゲーム画面 -->
+    <div id="game-screen" class="hidden">
+      <h2>ミニゲーム：3×3 行列式を計算せよ</h2>
+      <div id="matrix-container"></div>
+      <div id="controls">
+        <input type="text" id="answer-input" placeholder="det = ?" />
+        <button id="submit-btn">回答</button>
+        <button id="tip-btn">Tip (100)</button>
+        <button id="shop-btn">Shop</button>
+      </div>
+      <div id="status">
+        <p>Life: <span id="life">3</span></p>
+        <p>Money: <span id="money">0</span></p>
+        <p>Consecutive: <span id="combo">0</span></p>
+      </div>
+      <div id="message"></div>
+    </div>
+
+    <!-- 遊び方説明 -->
+    <div class="howto">
+      <h3>遊び方</h3>
+      <ol>
+        <li>「ミニゲームを始める」ボタンをクリック</li>
+        <li>表示された行列の行列式を計算して入力</li>
+        <li>正解するとコンボが増え、間違えるとライフが減少</li>
+        <li>Moneyを貯めてTipやShopを活用</li>
+        <li>ライフが0になるとゲームオーバー</li>
+      </ol>
     </div>
   </div>
 
