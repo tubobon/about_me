@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nyan MEMZ - Mobile Virus Edition</title>
+  <title>Nyan MEMZ - Virus Game</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,7 +13,6 @@
   </div>
 
   <div id="main-screen" class="hidden">
-    <!-- nyanが背景を通るように先に配置 -->
     <div id="nyancat-container"></div>
 
     <div class="intro-text">
@@ -23,14 +22,12 @@
       <p>所属：情報理工学部 １回生</p>
       <p>所属団体：RiST , RiPPro</p>
       <p>好きな食べ物：激辛系全般</p>
-      <p>勉強していること：Java, JavaScript, C++, ネットワーク</p>
+      <p>勉強中：Java, JavaScript, C++, ネットワーク</p>
       <p>Discord名：tubo8580 / LINE名：つぼ</p>
 
-      <!-- ゲームスタートボタン -->
       <button id="start-game-btn">🎮 ミニゲームを始める</button>
     </div>
 
-    <!-- ミニゲーム画面 -->
     <div id="game-screen" class="hidden">
       <h2>💥 3×3 行列式を計算せよ！</h2>
       <div id="matrix-container"></div>
@@ -41,7 +38,9 @@
         <button id="shop-btn">🛒 Shop</button>
       </div>
       <div id="status">
-        ❤️ Life: <span id="life">3</span> / 💰 Money: <span id="money">0</span> / 🔥 Combo: <span id="combo">0</span>
+        ❤️ Life: <span id="life">3</span> /
+        💰 Money: <span id="money">0</span> /
+        🔥 Combo: <span id="combo">0</span>
       </div>
       <div id="message"></div>
     </div>
