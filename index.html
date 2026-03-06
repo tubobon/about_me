@@ -4,66 +4,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tubo.img - Digital Forensics Viewer</title>
+<title>tubo.img</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-<h1>Digital Evidence Viewer</h1>
-<p>Case ID : 0001 | Disk Image : tubo.img</p>
-</header>
+<div class="terminal">
 
-<main>
+<div class="terminal-header">
+<span class="title">evidence@forensics:~/tubo.img</span>
+</div>
 
-<!-- ファイルシステム -->
-<section class="filesystem">
+<div class="filesystem">
 
-<h3>Filesystem</h3>
+<p class="prompt">$ ls /home/tubo/</p>
 
-<div class="file" onclick="openFile('profile')">📄 profile.txt</div>
-<div class="file" onclick="openFile('contact')">📄 contact.log</div>
-<div class="file" onclick="openFile('org')">📁 organizations/</div>
-<div class="file" onclick="openFile('interest')">📁 interests/</div>
-
-</section>
-
-<!-- アーティファクトビュー -->
-<section class="viewer">
-
-<h3>Artifact Viewer</h3>
-
-<pre id="content">
-Select an artifact to analyze.
-</pre>
-
-</section>
-
-<!-- メタデータ -->
-<section class="metadata">
-
-<h3>Metadata</h3>
-
-<div id="meta">
-
-File: -
-Size: -
-Access Time: -
-Analysis Status: waiting
+<div class="file" onclick="openFile('profile')">profile.txt</div>
+<div class="file" onclick="openFile('contact')">contact.log</div>
+<div class="file" onclick="openFile('org')">organizations/</div>
+<div class="file" onclick="openFile('interest')">interests/</div>
 
 </div>
 
-</section>
+<div id="viewer" class="hidden">
 
-</main>
+<p class="prompt">$ cat artifact</p>
 
-<footer>
-<p>© 2026 tubo | Digital Evidence System</p>
-</footer>
+<pre id="content"></pre>
+
+<div class="meta">
+<p class="prompt">$ stat artifact</p>
+<pre id="metadata"></pre>
+</div>
+
+<button onclick="back()">← back</button>
+
+</div>
+
+</div>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
