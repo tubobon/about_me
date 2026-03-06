@@ -2,40 +2,67 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自己紹介</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tubo.img - Digital Forensics Viewer</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-    <h1>My Website</h1>
+<h1>Digital Evidence Viewer</h1>
+<p>Case ID : 0001 | Disk Image : tubo.img</p>
 </header>
 
 <main>
 
-<div class="card">
+<!-- ファイルシステム -->
+<section class="filesystem">
 
-<h1>自己紹介</h1>
+<h3>Filesystem</h3>
 
-<p>名前：坪谷 悠輝（ツボタニ ユウキ）</p>
-<p>ハンドルネーム：つぼ</p>
-<p>所属：情報理工学部 2回生</p>
-<p>役職：団体長</p>
-<p>所属団体：RiST , RiPPro , RCC</p>
-<p>好きな食べ物：激辛系全般</p>
-<p>勉強中：Forensics </p>
-<p>Discord：つぼ / LINE：つぼ</p>
+<div class="file" onclick="openFile('profile')">📄 profile.txt</div>
+<div class="file" onclick="openFile('contact')">📄 contact.log</div>
+<div class="file" onclick="openFile('org')">📁 organizations/</div>
+<div class="file" onclick="openFile('interest')">📁 interests/</div>
+
+</section>
+
+<!-- アーティファクトビュー -->
+<section class="viewer">
+
+<h3>Artifact Viewer</h3>
+
+<pre id="content">
+Select an artifact to analyze.
+</pre>
+
+</section>
+
+<!-- メタデータ -->
+<section class="metadata">
+
+<h3>Metadata</h3>
+
+<div id="meta">
+
+File: -
+Size: -
+Access Time: -
+Analysis Status: waiting
 
 </div>
+
+</section>
 
 </main>
 
 <footer>
-<p>© 2026 tubo</p>
+<p>© 2026 tubo | Digital Evidence System</p>
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 
