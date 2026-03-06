@@ -1,50 +1,107 @@
+<!-- file: index.html -->
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tubo.img</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<title>Hex Profile</title>
 
+<style>
+body{
+    background:#0f172a;
+    color:#e5e7eb;
+    font-family: monospace;
+    padding:40px;
+}
+
+h1{
+    margin-bottom:20px;
+}
+
+.hex-view{
+    border:1px solid #334155;
+    border-radius:8px;
+    padding:20px;
+    background:#020617;
+}
+
+.row{
+    display:flex;
+    gap:20px;
+    line-height:1.8;
+}
+
+.offset{
+    width:80px;
+    color:#38bdf8;
+}
+
+.hex{
+    width:420px;
+    letter-spacing:1px;
+}
+
+.text{
+    color:#22c55e;
+}
+</style>
+
+</head>
 <body>
 
-<div class="terminal">
+<h1>自己紹介 (Hex View)</h1>
 
-<div class="terminal-header">
-<span class="title">evidence@forensics:~/tubo.img</span>
-</div>
+<div class="hex-view" id="hex"></div>
 
-<div class="filesystem">
+<script>
 
-<p class="prompt">$ ls /home/tubo/</p>
+const profile = `
+名前：坪谷 悠輝（ツボタニ ユウキ）
+ハンドルネーム：つぼ
+所属：情報理工学部 2回生
+役職：団体長
+所属団体：RiST , RiPPro , RCC
+好きな食べ物：激辛系全般
+勉強中：Forensics
+Discord：つぼ / LINE：つぼ
+`
 
-<div class="file" onclick="openFile('profile')">profile.txt</div>
-<div class="file" onclick="openFile('contact')">contact.log</div>
-<div class="file" onclick="openFile('org')">organizations/</div>
-<div class="file" onclick="openFile('interest')">interests/</div>
+const encoder = new TextEncoder()
+const bytes = encoder.encode(profile)
 
-</div>
+const container = document.getElementById("hex")
 
-<div id="viewer" class="hidden">
+const chunkSize = 16
 
-<p class="prompt">$ cat artifact</p>
+for(let i=0;i<bytes.length;i+=chunkSize){
 
-<pre id="content"></pre>
+    const slice = bytes.slice(i,i+chunkSize)
 
-<div class="meta">
-<p class="prompt">$ stat artifact</p>
-<pre id="metadata"></pre>
-</div>
+    const offset = i.toString(16).padStart(8,"0")
 
-<button onclick="back()">← back</button>
+    const hex = Array.from(slice)
+        .map(b=>b.toString(16).padStart(2,"0"))
+        .join(" ")
 
-</div>
+    const text = Array.from(slice)
+        .map(b=>{
+            if(b>=32 && b<=126) return String.fromCharCode(b)
+            return "."
+        }).join("")
 
-</div>
+    const row = document.createElement("div")
+    row.className="row"
 
-<script src="script.js"></script>
+    row.innerHTML=`
+        <div class="offset">${offset}</div>
+        <div class="hex">${hex}</div>
+        <div class="text">${text}</div>
+    `
+
+    container.appendChild(row)
+}
+
+</script>
 
 </body>
 </html>
