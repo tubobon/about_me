@@ -1,52 +1,42 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nyan MEMZ - Virus Game</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己紹介</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div id="memz-screen">
-    <div id="memz-text" class="typing"><span class="cursor">_</span></div>
-  </div>
+<header>
+    <h1>My Website</h1>
+</header>
 
-  <div id="main-screen" class="hidden">
-    <div id="nyancat-container"></div>
+<main>
 
-    <div class="intro-text">
-  <img id="line-icon" src="ダウンロード.png" alt="LINEアイコン" />
-  <h1>自己紹介</h1>
-  <p>名前：坪谷 悠輝（ツボタニ ユウキ）</p>
-  <p>ニックネーム：つぼ</p>
-  <p>所属：情報理工学部 １回生</p>
-  <p>所属団体：RiST , RiPPro</p>
-  <p>好きな食べ物：激辛系全般</p>
-  <p>勉強中：C++, CTF</p>
-  <p>Discord：tubo8580 / LINE：つぼ</p>
-  <button id="start-game-btn">🎮 ミニゲームを始める</button>
+<div class="card">
+
+<h1>自己紹介</h1>
+
+<p>名前：坪谷 悠輝（ツボタニ ユウキ）</p>
+<p>ハンドルネーム：つぼ</p>
+<p>所属：情報理工学部 2回生</p>
+<p>役職：団体長</p>
+<p>所属団体：RiST , RiPPro , RCC</p>
+<p>好きな食べ物：激辛系全般</p>
+<p>勉強中：Forensics </p>
+<p>Discord：つぼ / LINE：つぼ</p>
+
 </div>
 
+</main>
 
-    <div id="game-screen" class="hidden">
-      <h2>💥 3×3 行列式を計算せよ！</h2>
-      <div id="matrix-container"></div>
-      <div id="controls">
-        <input type="text" id="answer-input" placeholder="det = ?" />
-        <button id="submit-btn">✅ 回答</button>
-        <button id="tip-btn">💡 Tip (100)</button>
-        <button id="shop-btn">🛒 Shop</button>
-      </div>
-      <div id="status">
-        ❤️ Life: <span id="life">3</span> /
-        💰 Money: <span id="money">0</span> /
-        🔥 Combo: <span id="combo">0</span>
-      </div>
-      <div id="message"></div>
-    </div>
-  </div>
+<footer>
+<p>© 2026 tubo</p>
+</footer>
 
-  <script src="main.js"></script>
 </body>
+
 </html>
